@@ -1,9 +1,10 @@
-import Image from 'next/image'
+import Hero from '@/components/Hero/Hero'
 
-export default function Home() {
+const Home = () => {
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      Hoomie
-    </main>
+    <div className="flex min-h-screen flex-col items-center justify-between">
+      <Hero />
+    </div>
   )
 }
+export default Home;

@@ -1,0 +1,28 @@
+import Image from 'next/image'
+import HeroSearch from './Search'
+
+const Hero = () => {
+  return (
+    <section className="hero-section relative w-full flex flex-1 justify-center xl:pt-40">
+      <Image
+        className="absolute inset-0"
+        src="/house.jpg"
+        alt="Hero"
+        fill={true}
+        style={{objectFit: "cover"}}
+      />
+      <div className="hero-content relative text-center">
+        <div className="hero-title">
+          <h1 className="font-bold text-4xl lg:text-6xl leading-normal">
+            We help to find a perfect <br /> Home for you
+          </h1>
+        </div>
+        <div className="hero-search mt-10">
+          <HeroSearch />
+        </div>
+      </div>
+    </section>
+  )
+}
+
+export default Hero;
