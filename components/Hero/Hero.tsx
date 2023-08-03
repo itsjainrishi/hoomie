@@ -3,7 +3,7 @@ import HeroSearch from './Search'
 
 const Hero = () => {
   return (
-    <section className="hero-section relative w-full flex flex-1 justify-center xl:pt-40">
+    <section className="hero-section h-screen relative w-full flex justify-center xl:pt-40">
       <Image
         className="absolute inset-0"
         src="/house.jpg"

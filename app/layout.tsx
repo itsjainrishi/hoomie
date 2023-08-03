@@ -1,7 +1,7 @@
 import Navbar from '@/components/Navbar/Navbar'
 import './globals.css'
 import type { Metadata } from 'next'
-import { Roboto } from 'next/font/google'
+import { League_Spartan, Roboto } from 'next/font/google'
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -9,6 +9,8 @@ const roboto = Roboto({
   subsets: ['latin'],
   display: 'swap',
 })
+
+const leagueSpartan = League_Spartan({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
   title: 'Hoomie',
@@ -21,7 +23,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={roboto.className}>
+    <html lang="en" className={leagueSpartan.className}>
       <body>
         <Navbar />
         <main>{children}</main>

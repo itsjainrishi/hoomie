@@ -36,3 +36,7 @@ body {
 .shadow-box {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }
+
+.card__shadow {
+  box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
+}
