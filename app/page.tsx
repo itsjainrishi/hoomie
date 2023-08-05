@@ -2,7 +2,8 @@ import Image from 'next/image';
 import Hero from '@/components/Hero/Hero';
 import StatCard from '@/components/StatCard/StatCard';
 import { Card, CardBody, CardHeader } from '@/components/Card';
-
+import FeaturedCarousel from '@/components/FeaturedCarousel/FeaturedCarousel';
+import TestimonialCarousel from '@/components/TestimonialCarousel/TestimonialCarousel';
 
 const Home = () => {
   return (
@@ -42,16 +43,17 @@ const Home = () => {
             </div>
           </div>
 
-          <div className="col-span-4 xl:col-span-7">
+          <div className="col-span-4 xl:col-span-7 self-center">
             <div className="px-20">
-              <div className="">
+              <div className="relative">
                 <Image
                   alt="House"
-                  className="mx-auto"
-                  src="/house-pbg.png"
-                  height={400}
-                  width={400}
+                  className="mx-auto relative z-10"
+                  src="/holding-house.png"
+                  height={200}
+                  width={240}
                 />
+                <div className="absolute bg-primary rounded-2xl b-s h-[280px] w-[300px] left-[50%] -translate-x-2/4 bottom-0"></div>
               </div>
             </div>
           </div>
@@ -102,12 +104,22 @@ const Home = () => {
         </div>
       </section>
 
-      <section className="featured-properties container xl:mt-20">
+      <section className="featured-properties container mt-8 xxl:mt-20">
         <div className="">
           <h2 className="text-3xl font-bold">
             Featured Properties
           </h2>
+          <FeaturedCarousel />
         </div>
+      </section>
+
+      <section className="process container mt-8 xxl:mt-20">
+        <div className="text-center">
+          <h2 className="text-3xl font-bold">
+            What Our Customer Say About us
+          </h2>
+        </div>
+        <TestimonialCarousel />
       </section>
     </div>
   )

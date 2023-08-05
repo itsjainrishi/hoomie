@@ -30,7 +30,7 @@ const HeroSearch = () => {
         <Dropdown className="xl:w-[270px]" label="Select City" data={cities} />
         <Dropdown className="xl:w-[270px]" label="Choose property type " data={propertyTypes} />
         <Dropdown className="xl:w-[270px]" label="Choose price range" data={priceRanges} />
-        <button className="flex items-center font-roboto mx-4 px-4 py-4 rounded-3xl bg-[#f7976b] text-white text-xl">
+        <button className="flex items-center font-roboto mx-4 px-4 py-4 rounded-3xl bg-primary text-white text-xl">
           <Icon fill="#ffffff" name="Search" />
           <span className="ml-4">Search</span>
         </button>

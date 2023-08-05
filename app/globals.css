@@ -40,3 +40,11 @@ body {
 .card__shadow {
   box-shadow: rgba(0, 0, 0, 0.1) 0px 1px 2px 0px;
 }
+
+.shadow-house {
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+
+.b-s {
+  box-shadow: rgba(247, 151, 107, 0.4) -25px 25px;
+}
