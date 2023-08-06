@@ -3,25 +3,28 @@ import {
   IconFacebook,
   IconInstagram,
   IconLeftArrow,
+  IconMenu,
   IconRightArrow,
   IconSearch,
   IconYoutube
 } from '@/components/icons';
 
-const Icon = ({ fill, name, size }) => {
+const Icon = ({ fill, name, size, ...otherProps }) => {
   switch (name) {
     case 'Facebook':
-      return <IconFacebook fill={fill} size={size} />;
+      return <IconFacebook fill={fill} size={size} {...otherProps} />;
     case 'Instagram':
-      return <IconInstagram fill={fill} size={size} />;
+      return <IconInstagram fill={fill} size={size} {...otherProps} />;
     case 'LeftArrow':
-      return <IconLeftArrow fill={fill} size={size} />;
+      return <IconLeftArrow fill={fill} size={size} {...otherProps} />;
+    case 'Menu':
+      return <IconMenu fill={fill} size={size} {...otherProps} />;
     case 'RightArrow':
-      return <IconRightArrow fill={fill} size={size} />;
+      return <IconRightArrow fill={fill} size={size} {...otherProps} />;
     case 'Search':
-      return <IconSearch fill={fill} size={size} />;
+      return <IconSearch fill={fill} size={size} {...otherProps} />;
     case 'Youtube':
-      return <IconYoutube fill={fill} size={size} />;
+      return <IconYoutube fill={fill} size={size} {...otherProps} />;
   }
 }
 

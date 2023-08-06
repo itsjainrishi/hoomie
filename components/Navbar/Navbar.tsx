@@ -1,15 +1,22 @@
-import Link from 'next/link'
+'use client';
+import { useState } from 'react';
+import Link from 'next/link';
+import { Icon } from '@/components/icons';
 
-export default function Navbar() {
+const Navbar = () => {
+  const [mobile, setMobile] = useState(false);
 
+  const openMobile = () => {
+    setMobile(!mobile);
+  };
   return (
     <>
-      <nav className={`w-full top-0 z-50 fixed`}>
+      <nav className="w-full top-0 z-50 bg-[#fafcfb]">
         <div className="container mx-auto navbar-container px-4 lg:px-0 lg:pl-4">
-          <div className="navbar flex py-4 lg:py-6 justify-between">
+          <div className="navbar flex py-4 lg:py-6 justify-between items-center">
             <Link className="flex items-center" href="/">
               <p className="font-bold text-2xl xxl:text-3xl text-primary">
-                CryptoLand
+                Hoomie
               </p>
             </Link>
             <ul className="hidden lg:flex gap-12 font-roboto text-secondary text-lg pl-20 xl:pl-40 items-center">
@@ -17,39 +24,53 @@ export default function Navbar() {
                 {/*<Link href="market">Market</Link>*/}
               </li>
               <li>
-                <span className="cursor-pointer">News</span>
+                <span className="cursor-pointer">Rent</span>
+              </li>
+              <li>
+                <span className="cursor-pointer">Buy</span>
+              </li>
+              <li>
+                <span className="cursor-pointer">About</span>
               </li>
             </ul>
             <ul className="hidden lg:flex font-roboto gap-8 text-lg items-center ml-auto mr-4">
               <li>
-                <button className={`rounded-xl px-4 py-3`}>
-                  {/*<Link href="register">Register</Link>*/}
+                <button className="px-4 py-3">
+                  <a href="login">Login</a>
+                </button>
+              </li>
+              <li>
+                <button className="rounded-xl px-4 py-3 bg-primary">
+                  <a className="text-white" href="register">Register</a>
                 </button>
               </li>
             </ul>
-            <span>
-              <i className="fa-brands fa-twitter"></i>
-              <i className="fa-brands fa-discord"></i>
-              {/* mobile */}
-            </span>
+            <div className="lg:hidden">
+              <Icon name="Menu" onClick={openMobile} />
+            </div>
           </div>
         </div>
       </nav>
 
       {/* mobile nav */}
-      {/*<div className={`mobile-nav flex items-center justify-center fixed h-screen w-full lg:hidden transition ease-in-out delay-150 bg-[#f3f2f4] top-0 z-[60] ${mobile ? "left-0" : "-left-[100%]"}`}>
+      <div className={`mobile-nav flex items-center justify-center fixed h-screen w-full lg:hidden transition ease-in-out delay-150 bg-[#fafcfb] top-0 z-[60] ${mobile ? "left-0" : "-left-[100%]"}`}>
         <ul className="text-2xl font-bold">
           <li className="p-2" onClick={openMobile}>
-            <Link to="home">Home</Link>
+            <Link href="/">Home</Link>
           </li>
           <li className="p-2" onClick={openMobile}>
-            <Link to="market">Market</Link>
+            <Link href="/">Rent</Link>
           </li>
           <li className="p-2" onClick={openMobile}>
-            <span className="cursor-pointer">News</span>
+            <span className="cursor-pointer">Buy</span>
+          </li>
+          <li className="p-2" onClick={openMobile}>
+            <span className="cursor-pointer">About</span>
           </li>
         </ul>
-      </div>*/}
+      </div>
     </>
   )
 }
+
+export default Navbar;
