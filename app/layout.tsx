@@ -1,7 +1,9 @@
-import Navbar from '@/components/Navbar/Navbar'
-import './globals.css'
-import type { Metadata } from 'next'
-import { League_Spartan, Roboto } from 'next/font/google'
+import Navbar from '@/components/Navbar/Navbar';
+import Footer from '@/components/Footer/Footer';
+import './globals.css';
+import type { Metadata } from 'next';
+import { League_Spartan, Roboto } from 'next/font/google';
+
 
 const roboto = Roboto({
   weight: ['400', '700'],
@@ -27,6 +29,7 @@ export default function RootLayout({
       <body>
         <Navbar />
         <main>{children}</main>
+        <Footer />
       </body>
     </html>
   )

@@ -7,7 +7,7 @@ import TestimonialCarousel from '@/components/TestimonialCarousel/TestimonialCar
 
 const Home = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-between pb-20">
+    <div className="flex min-h-screen flex-col items-center justify-between pb-20 bg-[#fafcfb]">
       <Hero />
 
       <section className="business-overview container xl:mt-20">
@@ -120,6 +120,22 @@ const Home = () => {
           </h2>
         </div>
         <TestimonialCarousel />
+      </section>
+
+      <section className="subscribe container mt-8 xxl:mt-20 bg-[#fafcfb]">
+        <div className="flex items-center justify-center py-3">
+          <h2 className="text-xl xxl:text-3xl font-bold mr-20">
+            Stay Up To Date With Our Special Deals
+          </h2>
+          <div className="search p-4 xxl:py-6 xxl:px-6 rounded-3xl bg-white">
+            <div className="flex items-center justify-between w-96">
+              <input className="w-64 focus-none outline-none border-none" placeholder="Enter your email address" />
+              <button className="flex items-center font-roboto px-4 py-2 xxl:py-4 rounded-3xl bg-primary text-white xxl:text-xl">
+                <span>Subscribe</span>
+              </button>
+            </div>
+          </div>
+        </div>
       </section>
     </div>
   )
