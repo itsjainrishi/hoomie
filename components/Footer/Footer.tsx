@@ -2,24 +2,24 @@ import Image from 'next/image';
 import { Icon } from '@/components/icons';
 
 const Footer = () => (
-  <section className="py-6 xxl:py-10 bg-[#fafcfb]">
-    <div className="container mx-auto sm:pt-16 lg:pt-24 border-t">
-      <div className="grid grid-cols-2 md:grid-cols-8 xl:grid-cols-12 gap-y-16 gap-x-12 px-4">
+  <section className="bg-[#fafcfb]">
+    <div className="container mx-auto border-t">
+      <div className="grid grid-cols-2 md:grid-cols-8 xl:grid-cols-12 gap-4 lg:gap-6 px-4 mt-8">
         <div className="col-span-2 xl:col-span-3 lg:pr-8">
-          <h5 className="font-bold text-xl xl:text-3xl">
+          <h5 className="font-bold text-xl xl:text-3xl mt-4">
             Hoomie
           </h5>
 
-          <p className="font-roboto text-base leading-relaxed text-secondary mt-4 xxl:mt-10">
+          <p className="font-roboto text-sm lg:text-base leading-relaxed text-secondary mt-2 lg:mt-4 xxl:mt-10">
             Find Uk real estate.
           </p>
         </div>
 
-        <div className="md:col-span-3">
-          <div className="flex items-center justify-between">
+        <div className="col-span-4 md:col-span-3">
+          <div className="flex flex-col lg:flex-row lg:items-center justify-between">
             <div>
-              <h6 className="font-semibold mb-2">Company</h6>
-              <ul className="footer-content__2">
+              <h6 className="hidden lg:block font-semibold mb-2">Company</h6>
+              <ul className="footer-content__2 flex gap-4 lg:block">
                 <li className="py-1">
                   <a href="#home">Careers</a>
                 </li>
@@ -32,8 +32,8 @@ const Footer = () => (
               </ul>
             </div>
             <div>
-              <h6 className="font-semibold mb-2">Contact</h6>
-              <ul className="footer-content__2">
+              <h6 className="font-semibold mb-2 hidden lg:block">Contact</h6>
+              <ul className="footer-content__2 flex gap-4 lg:block">
                 <li className="py-1">
                   <a href="#home">Help/FAQ</a>
                 </li>
@@ -48,7 +48,7 @@ const Footer = () => (
           </div>
         </div>
         
-        <div className="md:col-start-7 xl:col-start-10 col-span-2 xl:col-span-3 justify-self-end">
+        <div className="col-span-4 md:col-start-7 xl:col-start-10 col-span-2 xl:col-span-3 lg:justify-self-end mt-4 lg:mt-0">
           <div className="socials flex gap-6">
             <a href="https://www.instagram.com" target="_blank" rel="noreferrer">
               <Icon name="Instagram" size="24" />
@@ -60,7 +60,7 @@ const Footer = () => (
               <Icon name="Youtube" size="24" />
             </a>
           </div>
-          <div className="app-links mt-6">
+          <div className="app-links mt-4 lg:mt-6">
             <h6 className="">Discover our app</h6>
             <div className="flex md:flex-col lg:flex-row gap-6 mt-2">
               <a href="https://play.google.com/" target="_blank" rel="noreferrer">
@@ -87,8 +87,8 @@ const Footer = () => (
         </div>
 
       </div>
-      <hr className="mt-16 mb-10 border-secondary" />
-      <p className="text-sm text-center text-secondary font-roboto">
+      <hr className="mt-6 mb-6 lg:mt-8 lg:mb-8 border-secondary" />
+      <p className="text-sm text-center text-secondary font-roboto mb-6">
         © Copyright 2023, All Rights Reserved by Hoomie
       </p>
     </div>

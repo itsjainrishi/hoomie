@@ -2,6 +2,7 @@
 
 import { useState } from 'react'
 import { useClickAway } from "@uidotdev/usehooks";
+import { Icon } from '@/components/icons';
 
 const Dropdown = ({ className, data, label }) => {
   const [isActive, setIsActive] = useState(false);
@@ -27,21 +28,19 @@ const Dropdown = ({ className, data, label }) => {
           onClick={() => toggleDropdown()}
         >
           <div>
-            <span className="text-xl font-semibold">{selected.label}</span>
-            <div className="">{label}</div>
+            <span className="text-sm xxl:text-xl font-semibold">
+              {selected.label}
+            </span>
+            <div className="text-xs lg:text-base text-left md:text-center">
+              {label}
+            </div>
           </div>
-          <svg
-            className="fill-current h-6 w-6 ml-auto"
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 20 20"
-          >
-            <path d="M9.293 12.95l.707.707L15.657 8l-1.414-1.414L10 10.828 5.757 6.586 4.343 8z"/>
-          </svg>
+          <Icon name="DownArrow" size="24" />
         </button>
-        <ul className={`dropdown-menu p-4 w-full bg-white shadow-box absolute rounded-2xl ${isActive ? '' : 'hidden'}`}>
+        <ul className={`dropdown-menu p-4 w-full bg-white shadow-box absolute rounded-2xl z-10 ${isActive ? '' : 'hidden'}`}>
           {data.map(item => (
             <li key={item.value} className="text-left" onClick={() => handleItemClick(item)}>
-              <a className="text-xl py-4 px-4 block whitespace-no-wrap" href="#">
+              <a className="text-sm xxl:text-xl p-2 lg:py-4 lg:px-4 block whitespace-no-wrap" href="#">
                 {item.label}
               </a>
             </li>

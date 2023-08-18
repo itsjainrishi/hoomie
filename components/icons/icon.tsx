@@ -1,5 +1,7 @@
 import PropTypes from 'prop-types';
 import {
+  IconCancel,
+  IconDownArrow,
   IconFacebook,
   IconInstagram,
   IconLeftArrow,
@@ -11,6 +13,10 @@ import {
 
 const Icon = ({ fill, name, size, ...otherProps }) => {
   switch (name) {
+    case 'Cancel':
+      return <IconCancel fill={fill} size={size} {...otherProps} />
+    case 'DownArrow':
+      return <IconDownArrow fill={fill} size={size} {...otherProps} />
     case 'Facebook':
       return <IconFacebook fill={fill} size={size} {...otherProps} />;
     case 'Instagram':

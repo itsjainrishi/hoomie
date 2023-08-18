@@ -54,6 +54,12 @@ const Navbar = () => {
 
       {/* mobile nav */}
       <div className={`mobile-nav flex items-center justify-center fixed h-screen w-full lg:hidden transition ease-in-out delay-150 bg-[#fafcfb] top-0 z-[60] ${mobile ? "left-0" : "-left-[100%]"}`}>
+        <Icon
+          name="Cancel"
+          size="24"
+          style={{position: "absolute", top: "1.5rem", right: "1rem"}}
+          onClick={openMobile}
+        />
         <ul className="text-2xl font-bold">
           <li className="p-2" onClick={openMobile}>
             <Link href="/">Home</Link>

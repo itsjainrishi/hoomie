@@ -3,7 +3,7 @@ import HeroSearch from './Search'
 
 const Hero = () => {
   return (
-    <section className="hero-section h-screen relative w-full flex justify-center xl:pt-40">
+    <section className="hero-section h-screen relative w-full flex justify-center pt-10 xl:pt-40">
       <Image
         className="absolute inset-0"
         src="/house.jpg"
@@ -11,9 +11,9 @@ const Hero = () => {
         fill={true}
         style={{objectFit: "cover"}}
       />
-      <div className="hero-content relative text-center">
+      <div className="hero-content relative text-center px-4 md:px-0">
         <div className="hero-title">
-          <h1 className="font-bold text-4xl lg:text-6xl leading-normal">
+          <h1 className="font-bold text-3xl md:text-4xl lg:text-6xl leading-normal">
             We help to find a perfect <br /> Home for you
           </h1>
         </div>

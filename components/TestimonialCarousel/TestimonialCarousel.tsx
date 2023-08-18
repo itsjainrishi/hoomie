@@ -23,12 +23,12 @@ const TestimonialCarousel = () => {
   return (
     <div className="testimonials text-center">
       <div className="relative">
-        <div className="overflow-hidden pt-8 pb-4" ref={emblaRef}>
+        <div className="overflow-hidden pt-4 lg:pt-8 lg:pb-4" ref={emblaRef}>
           <div className="flex">
             {slides.map((slide, index) => (
               <div key={index} className="flex-[0_0_100%] mx-4 xl:mx-6">
                 <p>{slide.message}</p>
-                <p className="mt-8 font-semibold">{slide.name}</p>
+                <p className="mt-4 lg:mt-8 font-semibold">{slide.name}</p>
               </div>
             ))}
           </div>
@@ -41,7 +41,7 @@ const TestimonialCarousel = () => {
             {slides.map((slide, index) => (
               <div key={index} className="mx-2 cursor-pointer">
                 <div
-                  className={`w-[84px] h-[84px] flex items-center justify-center p-2 rounded-full ${selectedIndex === index ? 'border-2 border-primary' : ''}`}
+                  className={`w-16 h-16 lg:w-[84px] lg:h-[84px] flex items-center justify-center p-2 rounded-full ${selectedIndex === index ? 'border-2 border-primary' : ''}`}
                   onClick={() => onThumbClick(index)}
                 >
                   <Image

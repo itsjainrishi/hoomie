@@ -25,14 +25,14 @@ const HeroSearch = () => {
   ]
 
   return (
-    <div className="search py-6 px-6 rounded-3xl bg-white">
-      <div className="flex items-center">
-        <Dropdown className="xl:w-[270px]" label="Select City" data={cities} />
-        <Dropdown className="xl:w-[270px]" label="Choose property type " data={propertyTypes} />
-        <Dropdown className="xl:w-[270px]" label="Choose price range" data={priceRanges} />
-        <button className="flex items-center font-roboto mx-4 px-4 py-4 rounded-3xl bg-primary text-white text-xl">
+    <div className="search p-2 lg:py-6 lg:px-6 rounded-3xl bg-white">
+      <div className="flex flex-col md:flex-row items-center">
+        <Dropdown className="w-full xl:w-[270px]" label="Select City" data={cities} />
+        <Dropdown className="w-full xl:w-[270px]" label="Choose property type " data={propertyTypes} />
+        <Dropdown className="w-full xl:w-[270px]" label="Choose price range" data={priceRanges} />
+        <button className="flex items-center font-roboto mx-4 px-4 py-4 mt-4 lg:mt-0 rounded-3xl bg-primary text-white text-sm lg:text-base xxl:text-xl">
           <Icon fill="#ffffff" name="Search" />
-          <span className="ml-4">Search</span>
+          <span className="ml-2 md:ml-4">Search</span>
         </button>
       </div>
     </div>

@@ -1,0 +1,10 @@
+query FeaturedProperties() {
+  featuredProperties {
+    id
+    property {
+      id
+      propertyName
+      rentPrice
+    }
+  }
+}

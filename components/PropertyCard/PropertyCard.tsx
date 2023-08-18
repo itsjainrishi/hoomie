@@ -14,17 +14,18 @@ const PropertyCard = (props) => {
               alt=""
             />
           </div>
-          <div className="p-4 xl:p-6">
-            <h3 className="text-xs text-gray-900 sm:text-sm md:text-base xl:text-xl">
-              <span href="#" title="">
-                {name}
-                <span className="absolute inset-0" aria-hidden="true"></span>
-              </span>
-            </h3>
-            <div className="mt-2">
-              <p className="text-xs font-semibold text-primary sm:text-sm md:text-base xl:text-lg">
-                {price}
-              </p>
+          <div className="p-4 xl:px-6 h-[140px]">
+            <div className="flex flex-col justify-between h-full">
+              <h3 className="text-xs text-gray-900 sm:text-sm md:text-base xl:text-xl">
+                <span className="overflow-hidden tex">
+                  {name}
+                </span>
+              </h3>
+              <div className="mt-2">
+                <p className="text-xs font-semibold text-primary sm:text-sm md:text-base xl:text-lg">
+                  £{price}
+                </p>
+              </div>
             </div>
           </div>
         </div>

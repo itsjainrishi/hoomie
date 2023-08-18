@@ -2,7 +2,7 @@ import Navbar from '@/components/Navbar/Navbar';
 import Footer from '@/components/Footer/Footer';
 import './globals.css';
 import type { Metadata } from 'next';
-import { League_Spartan, Roboto } from 'next/font/google';
+import { League_Spartan, Roboto, Poppins } from 'next/font/google';
 
 
 const roboto = Roboto({

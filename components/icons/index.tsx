@@ -1,4 +1,6 @@
 export { default as Icon } from './icon';
+export { default as IconCancel } from './cancel';
+export { default as IconDownArrow } from './downArrow';
 export { default as IconFacebook } from './facebook';
 export { default as IconInstagram } from './instagram';
 export { default as IconLeftArrow } from './leftArrow';

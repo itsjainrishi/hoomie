@@ -13,8 +13,8 @@ const slides = [
   {name: 'Preston Rd. Inglewood, Maine', price: '$99.00', url: 'house-1.jpg'},
 ];
 
-const FeaturedCarousel = () => {
-  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
+const FeaturedCarousel = ({ properties }) => {
+  const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, breakpoints: { '(min-width: 320px)': { align: 'start' } } });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
 
@@ -33,30 +33,32 @@ const FeaturedCarousel = () => {
     updateCurrent();
   };
 
+  console.log(properties);
+
   return (
-    <div className="space-y-6">
+    <div className="space-y-4 lg:space-y-6">
       <div className="relative">
-        <div className="flex gap-6 justify-end mt-8 mr-8">
+        <div className="flex gap-4 lg:gap-6 justify-end mt-4 md:mt-8 mr-4 md:mr-8">
           <button
             aria-label="go to previous slide"
             onClick={handlePrevious}
-            className="flex items-center justify-center rounded-full bg-primary w-12 h-12"
+            className="flex items-center justify-center rounded-full bg-primary w-8 h-8 lg:w-12 lg:h-12"
           >
             <Icon fill="#ffffff" name="LeftArrow" />
           </button>
           <button
             aria-label="go to next slide"
             onClick={handleNext}
-            className="flex items-center justify-center rounded-full bg-primary w-12 h-12"
+            className="flex items-center justify-center rounded-full bg-primary w-8 h-8 lg:w-12 lg:h-12"
           >
             <Icon fill="#ffffff" name="RightArrow" />
           </button>
         </div>
-        <div className="overflow-hidden py-10" ref={emblaRef}>
+        <div className="overflow-hidden py-6 lg:py-10" ref={emblaRef}>
           <div className="flex">
-            {slides.map((slide, index) => (
-              <div key={index} className="flex-[0_0_30%] mx-4 xl:mx-6">
-                <PropertyCard name={slide.name} imageUrl={slide.url} price={slide.price} />
+            {properties.map((slide, index) => (
+              <div key={index} className="flex-[0_0_60%] md:flex-[0_0_40%] lg:flex-[0_0_30%] px-4 lg:px-6">
+                <PropertyCard name={slide.property.propertyName} imageUrl={slide.property.images[0].url} price={slide.property.rentPrice} />
               </div>
             ))}
           </div>
