@@ -33,8 +33,6 @@ const FeaturedCarousel = ({ properties }) => {
     updateCurrent();
   };
 
-  console.log(properties);
-
   return (
     <div className="space-y-4 lg:space-y-6">
       <div className="relative">
@@ -56,9 +54,9 @@ const FeaturedCarousel = ({ properties }) => {
         </div>
         <div className="overflow-hidden py-6 lg:py-10" ref={emblaRef}>
           <div className="flex">
-            {properties.map((slide, index) => (
+            {properties.map((property, index) => (
               <div key={index} className="flex-[0_0_60%] md:flex-[0_0_40%] lg:flex-[0_0_30%] px-4 lg:px-6">
-                <PropertyCard name={slide.property.propertyName} imageUrl={slide.property.images[0].url} price={slide.property.rentPrice} />
+                <PropertyCard property={property} />
               </div>
             ))}
           </div>

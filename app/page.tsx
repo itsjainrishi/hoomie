@@ -1,3 +1,4 @@
+import { gql } from '@apollo/client';
 import { getClient } from '@/lib/client';
 import Image from 'next/image';
 import Hero from '@/components/Hero/Hero';
@@ -5,7 +6,6 @@ import StatCard from '@/components/StatCard/StatCard';
 import { Card, CardBody, CardHeader } from '@/components/Card';
 import FeaturedCarousel from '@/components/FeaturedCarousel/FeaturedCarousel';
 import TestimonialCarousel from '@/components/TestimonialCarousel/TestimonialCarousel';
-import { gql } from '@apollo/client';
 
 const FeaturedProperties = gql`{
   featuredProperties {
@@ -27,7 +27,6 @@ const Home = async() => {
     query: FeaturedProperties,
     variables: null
   });
-  console.log(data);
 
   return (
     <div className="flex min-h-screen flex-col items-center justify-between pb-10 xl:pb-20 bg-[#fafcfb]">

@@ -12,7 +12,7 @@ const Navbar = () => {
   return (
     <>
       <nav className="w-full top-0 z-50 bg-[#fafcfb]">
-        <div className="container mx-auto navbar-container px-4 lg:px-0 lg:pl-4">
+        <div className="container mx-auto navbar-container px-4 lg:px-0">
           <div className="navbar flex py-4 lg:py-6 justify-between items-center">
             <Link className="flex items-center" href="/">
               <p className="font-bold text-2xl xxl:text-3xl text-primary">
