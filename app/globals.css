@@ -38,6 +38,15 @@ body {
   outline: none;
 }
 
+.hide-scroll-x {
+  -ms-overflow-style: none;  /* IE and Edge */
+  scrollbar-width: none;  /* Firefox */
+}
+
+.hide-scroll-x::-webkit-scrollbar {
+  display: none; /* for Chrome, Safari, and Opera */;
+}
+
 .shadow-box {
   box-shadow: rgba(0, 0, 0, 0.16) 0px 1px 4px;
 }

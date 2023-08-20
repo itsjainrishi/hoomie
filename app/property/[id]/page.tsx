@@ -3,6 +3,7 @@ import { gql } from '@apollo/client';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import { getClient } from '@/lib/client';
 import Map from '@/components/map/map';
+import { PropertyImageCarousel } from '@/components/Property';
 
 
 const PropertyQuery = gql`
@@ -50,8 +51,8 @@ const Property = async({ params }: { params: { id: string } }) => {
 
   return (
     <div className="bg-[#fafcfb]">
-      <div className="pt-6">
-        <nav aria-label="Breadcrumb">
+      <div className="lg:pt-6">
+        <nav className="hidden lg:block" aria-label="Breadcrumb">
           <ol role="list" className="container mx-auto flex items-center space-x-2 px-4 lg:px-0">
             <li>
               <div className="flex items-center">
@@ -79,7 +80,7 @@ const Property = async({ params }: { params: { id: string } }) => {
           </ol>
         </nav>
 
-        <div className="container mx-auto mt-6 lg:grid lg:grid-cols-4 lg:gap-x-2 h-96">
+        <div className="container mx-auto lg:mt-6 grid grid-cols-2 lg:grid-cols-4 lg:gap-x-2 lg:h-96">
           <div className="col-span-2">
             <div className="relative hidden overflow-hidden rounded-lg lg:block h-full">
               <Image
@@ -89,6 +90,7 @@ const Property = async({ params }: { params: { id: string } }) => {
                 fill={true}
               />
             </div>
+            <PropertyImageCarousel images={property?.images} />
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-2">
             <div className="relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
@@ -128,7 +130,7 @@ const Property = async({ params }: { params: { id: string } }) => {
           </div>
         </div>
 
-        <div className="container mx-auto pb-16 pt-10 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-6 lg:pb-24 lg:pt-16">
+        <div className="container mx-auto pb-16 pt-10 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-6 lg:pb-24 lg:pt-16 px-4 lg:px-0">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
               { property.propertyName }
@@ -146,22 +148,22 @@ const Property = async({ params }: { params: { id: string } }) => {
             </h2>
 
             <div className="amneties mt-8">
-              <div className="flex gap-6">
-                <div className="flex items-center gap-4 p-4 rounded-xl border border-gray bg-white w-32">
+              <div className="flex gap-6 overflow-auto hide-scroll-x">
+                <div className="flex items-center gap-4 p-4 rounded-xl border border-gray bg-white min-w-max w-32">
                   <div className="leading-[18px]">
                     <span className="text-primary font-semibold">
                       {property.numberOfBedrooms}
                     </span> Bedrooms
                   </div>
                 </div>
-                <div className="flex items-center gap-4 p-4 rounded-xl border border-gray bg-white w-32">
+                <div className="flex items-center gap-4 p-4 rounded-xl border border-gray bg-white min-w-max w-32">
                   <div className="leading-[18px]">
                     <span className="text-primary font-semibold">
                       {property.numberOfBathrooms}
                     </span> Bathrooms
                   </div>
                 </div>
-                <div className="flex items-center gap-4 p-4 rounded-xl border border-gray bg-white w-32">
+                <div className="flex items-center gap-4 p-4 rounded-xl border border-gray bg-white min-w-max w-32">
                   <div className="leading-[18px]">
                     <span className="text-primary font-semibold">
                       {property.numberOfParkingSpaces}
@@ -169,7 +171,7 @@ const Property = async({ params }: { params: { id: string } }) => {
                   </div>
                 </div>
                 {property.numberOfFloors &&
-                  <div className="flex items-center gap-4 p-4 rounded-xl border border-gray bg-white w-32">
+                  <div className="flex items-center gap-4 p-4 rounded-xl border border-gray bg-white min-w-max w-32">
                     <div className="leading-[18px]">
                       <span className="text-primary font-semibold">
                         {property.numberOfFloors}
@@ -192,12 +194,12 @@ const Property = async({ params }: { params: { id: string } }) => {
               <RichText
                 content={property.description.raw}
                 renderers={{
-                  p: ({children}) => <p className="mt-10 leading-8 text-lg">{children}</p>,
+                  p: ({children}) => <p className="mt-10 leading-8 lg;text-lg">{children}</p>,
                   ul: ({children}) => {
                     return (
                       <div>
                         <h2 className="text-2xl font-semibold">About this place</h2>
-                        <ul className="mt-4 text-lg">{children}</ul>
+                        <ul className="mt-4 lg:text-lg">{children}</ul>
                       </div>
                     )
                   },
