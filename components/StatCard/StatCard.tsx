@@ -1,6 +1,14 @@
 import { Card, CardBody } from '@/components/Card';
 
-const StatCard = (props) => {
+type StatCardProps = {
+  bodyClassName?: string;
+  className?: string;
+  children?: React.ReactNode;
+  hasShadow?: boolean;
+  shadow?: string;
+}
+
+const StatCard = (props: StatCardProps) => {
   const {
     bodyClassName,
     className,

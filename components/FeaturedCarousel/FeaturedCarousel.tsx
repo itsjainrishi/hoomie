@@ -1,19 +1,20 @@
 'use client';
 import { useState } from 'react';
 import useEmblaCarousel from 'embla-carousel-react';
-import PropertyCard from '@/components/PropertyCard/PropertyCard';
+import { PropertyCard } from '@/components/Property';
 import { Icon } from '@/components/icons';
+import type { Property } from '@/components/Property';
 
 
-const slides = [
-  {name: 'Preston Rd. Inglewood, Maine', price: '$99.00', url: 'house-1.jpg'},
-  {name: 'Preston Rd. Inglewood, Maine', price: '$99.00', url: 'house-1.jpg'},
-  {name: 'Preston Rd. Inglewood, Maine', price: '$99.00', url: 'house-1.jpg'},
-  {name: 'Preston Rd. Inglewood, Maine', price: '$99.00', url: 'house-1.jpg'},
-  {name: 'Preston Rd. Inglewood, Maine', price: '$99.00', url: 'house-1.jpg'},
-];
+type FeaturedCarouselProps = {
+  properties: {
+    __typename: 'FeaturedProperty';
+    id: string;
+    property: Property;
+  }[];
+}
 
-const FeaturedCarousel = ({ properties }) => {
+const FeaturedCarousel = ({ properties }: FeaturedCarouselProps) => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true, breakpoints: { '(min-width: 320px)': { align: 'start' } } });
 
   const [selectedIndex, setSelectedIndex] = useState(0);
@@ -42,21 +43,22 @@ const FeaturedCarousel = ({ properties }) => {
             onClick={handlePrevious}
             className="flex items-center justify-center rounded-full bg-primary w-8 h-8 lg:w-12 lg:h-12"
           >
-            <Icon fill="#ffffff" name="LeftArrow" />
+            <Icon className="w-4 h-4 fill-white" name="LeftArrow" />
           </button>
           <button
             aria-label="go to next slide"
             onClick={handleNext}
             className="flex items-center justify-center rounded-full bg-primary w-8 h-8 lg:w-12 lg:h-12"
           >
-            <Icon fill="#ffffff" name="RightArrow" />
+            <Icon className="w-4 h-4 fill-white" name="RightArrow" />
           </button>
         </div>
         <div className="overflow-hidden py-6 lg:py-10" ref={emblaRef}>
           <div className="flex">
             {properties.map((property, index) => (
+
               <div key={index} className="flex-[0_0_60%] md:flex-[0_0_40%] lg:flex-[0_0_30%] px-4 lg:px-6">
-                <PropertyCard property={property} />
+                <PropertyCard property={property?.property} />
               </div>
             ))}
           </div>

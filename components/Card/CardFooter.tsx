@@ -1,4 +1,4 @@
-const CardFooter = (props) => {
+const CardFooter = (props: any) => {
   const { as, className, children, ...otherProps } = props;
   const Component = as || "div";
 

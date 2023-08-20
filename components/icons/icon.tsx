@@ -1,54 +1,40 @@
 import PropTypes from 'prop-types';
 import {
-  IconArea,
-  IconBedroom,
   IconCancel,
   IconDownArrow,
   IconFacebook,
   IconInstagram,
   IconLeftArrow,
   IconMenu,
-  IconParking,
   IconRightArrow,
   IconSearch,
-  IconShower,
   IconYoutube
 } from '@/components/icons';
 
-const Icon = ({ fill, name, size, ...otherProps }) => {
+const Icon = ({ name, ...otherProps }: { name: string; [x:string]: any; }) => {
   switch (name) {
-    case 'Area':
-      return <IconArea fill={fill} size={size} {...otherProps} />;
-    case 'Bedroom':
-      return <IconBedroom fill={fill} size={size} {...otherProps} />;
     case 'Cancel':
-      return <IconCancel fill={fill} size={size} {...otherProps} />;
+      return <IconCancel {...otherProps} />;
     case 'DownArrow':
-      return <IconDownArrow fill={fill} size={size} {...otherProps} />;
+      return <IconDownArrow {...otherProps} />;
     case 'Facebook':
-      return <IconFacebook fill={fill} size={size} {...otherProps} />;
+      return <IconFacebook {...otherProps} />;
     case 'Instagram':
-      return <IconInstagram fill={fill} size={size} {...otherProps} />;
+      return <IconInstagram {...otherProps} />;
     case 'LeftArrow':
-      return <IconLeftArrow fill={fill} size={size} {...otherProps} />;
+      return <IconLeftArrow {...otherProps} />;
     case 'Menu':
-      return <IconMenu fill={fill} size={size} {...otherProps} />;
-    case 'Parking':
-      return <IconParking fill={fill} size={size} {...otherProps} />;
+      return <IconMenu {...otherProps} />;
     case 'RightArrow':
-      return <IconRightArrow fill={fill} size={size} {...otherProps} />;
+      return <IconRightArrow {...otherProps} />;
     case 'Search':
-      return <IconSearch fill={fill} size={size} {...otherProps} />;
-    case 'Shower':
-      return <IconShower fill={fill} size={size} {...otherProps} />;
+      return <IconSearch {...otherProps} />;
     case 'Youtube':
-      return <IconYoutube fill={fill} size={size} {...otherProps} />;
+      return <IconYoutube {...otherProps} />;
   }
 }
 
 Icon.propTypes = {
-  fill: PropTypes.string,
-  size: PropTypes.string,
   name: PropTypes.string.isRequired,
 };
 

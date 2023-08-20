@@ -15,7 +15,7 @@ const TestimonialCarousel = () => {
   const [emblaRef, emblaApi] = useEmblaCarousel({ loop: true });
   const [selectedIndex, setSelectedIndex] = useState(0);
 
-  const onThumbClick = (index) => {
+  const onThumbClick = (index: number) => {
     setSelectedIndex(index);
     emblaApi?.scrollTo(index)
   }

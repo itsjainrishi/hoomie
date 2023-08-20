@@ -2,10 +2,10 @@ import { gql } from '@apollo/client';
 import { getClient } from '@/lib/client';
 import Image from 'next/image';
 import Hero from '@/components/Hero/Hero';
-import StatCard from '@/components/StatCard/StatCard';
+import { StatCard } from '@/components/StatCard';
 import { Card, CardBody, CardHeader } from '@/components/Card';
-import FeaturedCarousel from '@/components/FeaturedCarousel/FeaturedCarousel';
-import TestimonialCarousel from '@/components/TestimonialCarousel/TestimonialCarousel';
+import { FeaturedCarousel } from '@/components/FeaturedCarousel';
+import { TestimonialCarousel } from '@/components/TestimonialCarousel';
 
 const FeaturedProperties = gql`{
   featuredProperties {
@@ -25,7 +25,7 @@ const FeaturedProperties = gql`{
 const Home = async() => {
   const data = await getClient().query({
     query: FeaturedProperties,
-    variables: null
+    variables: undefined
   });
 
   return (
