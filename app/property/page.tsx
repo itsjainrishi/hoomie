@@ -77,7 +77,7 @@ const PropertyListing = () => {
             {data?.properties.length > 0 ? (
               <div className="grid lg:col-span-4 xl:grid-cols-8 gap-10">
                 <div className="col-span-4 xl:col-span-8">
-                  <Map className="h-96 rounded-lg" markers={markers} />
+                  <Map className="h-96 rounded-lg z-10" markers={markers} />
                 </div>
                 {data?.properties?.map((property, index) => (
                   <div className="col-span-4" key={property.id}>
