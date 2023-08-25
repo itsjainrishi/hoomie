@@ -10,6 +10,10 @@ html {
   outline: none;
 }
 
+body.modal-open {
+  overflow: hidden;
+}
+
 /*:root {
   --foreground-rgb: 0, 0, 0;
   --background-start-rgb: 214, 219, 220;

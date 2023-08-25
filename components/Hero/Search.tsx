@@ -34,8 +34,6 @@ const HeroSearch = () => {
   const [priceRange, setPriceRange] = useState(priceRanges[0]);
 
   const showProperties = () => {
-    console.log(city)
-    console.log(propertyType)
     let cityChanged = false;
     let propertyTypeChanged = false;
     let priceRangeChanged = false;

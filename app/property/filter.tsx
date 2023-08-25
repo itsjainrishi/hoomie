@@ -21,8 +21,13 @@ const cities = [
 const bathrooms = ['Any', '1', '2', '3', '4', '5+'];
 const bedrooms = ['Any', '1', '2', '3', '4', '5+'];
 
+type FilterProps = {
+  closeFilters?: () => void;
+  isVisible?: boolean;
+}
 
-const Filter = () => {
+
+const Filter = ({ closeFilters, isVisible }: FilterProps) => {
   const router = useRouter();
   const searchParams = useSearchParams();
 
@@ -50,7 +55,7 @@ const Filter = () => {
     let routeparams = "?rentPrice_gte=" + gte + "&rentPrice_lte=" + lte;
 
     routeparams += '&city=' + city.value + '&type=' + propertyType.value + '&room=' + roomCount + '&bath=' + bathRoomCount;
-    router.push(`/property${routeparams}`);
+    router.replace(`/property${routeparams}`);
   }
 
   const intervalRef = useRef(null);
@@ -86,6 +91,11 @@ const Filter = () => {
 
   const handleMaxPrice = (val) => setLTE(val);
 
+  const handleClose = () => {
+    closeFilters(false);
+    document.body.classList.remove('modal-open');
+  }
+
   return (
     <>
       <div className="flex items-center justify-between gap-6 w-full">
@@ -93,7 +103,7 @@ const Filter = () => {
           Filters
         </h2>
       </div>
-      <div className="relative mt-6 flex-1 px-4 sm:px-6">
+      <div className="relative mt-6 flex-1 px-4 sm:px-6 pb-24">
         <h4 className="font-semibold xxl:text-xl">Price range</h4>
         <div className="flex gap-4 mt-4">
           <div className="w-1/2">
@@ -161,6 +171,22 @@ const Filter = () => {
             
           ))}
         </div>
+      </div>
+      <div className={`filter-actions py-4 lg:hidden gap-6 w-full justify-center fixed bottom-0 bg-white left-0 ${ isVisible ? 'flex' : 'hidden' }`}>
+        <button
+          className="p-2 text-primary border border-primary rounded-xl w-40"
+          type="button"
+          onClick={handleClose}
+        >
+          Reset Filters
+        </button>
+        <button
+          className="bg-primary border border-primary p-2 rounded-xl text-white w-40"
+          type="button"
+          onClick={handleClose}
+        >
+          See Results
+        </button>
       </div>
     </>
   )

@@ -1,6 +1,6 @@
 'use client';
 
-import { useRef } from 'react';
+import { useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
 import { gql, useSuspenseQuery } from '@apollo/client';
 import { useIntersectionObserver } from 'usehooks-ts';
@@ -28,6 +28,7 @@ const PropertiesQuery = gql`
 `;
 
 const PropertyListing = () => {
+  const [mobile, setMobile] = useState(false);
   const searchParams = useSearchParams();
 
   const cityParam = searchParams.get('city');
@@ -58,13 +59,27 @@ const PropertyListing = () => {
     }
   });
 
+  const showFilters = () => {
+    setMobile(!mobile);
+    if (!mobile) {
+      if (document.body.scrollHeight > window.innerHeight) {
+        document.body.classList.add('modal-open')
+      }
+    } else {
+      document.body.classList.remove('modal-open')
+    }
+  } 
+
   const ref = useRef<HTMLDivElement | null>(null);
   const entry = useIntersectionObserver(ref, {});
   const isVisible = !!entry?.isIntersecting;
 
   return (
     <div className="bg-[#fafcfb]">
-      <div className="properties container mx-auto pt-10 xl:pt-20 pb-10 px-4 lg:px-0">
+      <div className="properties container mx-auto pt-6 xl:pt-20 pb-10 px-4 lg:px-0">
+        <div className="flex justify-end mb-2">
+          <Icon name="Filter" className="w-6 h-6" onClick={showFilters} />
+        </div>
         <div className="relative grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-4 lg:gap-6">
           <div className="col-span-4 lg:col-span-3 xl:col-span-4">
             <div
@@ -90,6 +105,9 @@ const PropertyListing = () => {
             }
             <div ref={ref} className="end"></div>
           </div>
+        </div>
+        <div className={`mobile-nav fixed overflow-y-scroll h-screen w-full lg:hidden transition ease-in-out delay-150 p-4 bg-[#fafcfb] top-0 z-[60] ${mobile ? "left-0" : "-left-[100%]"}`}>
+          <Filter closeFilters={setMobile} isVisible={mobile} />
         </div>
       </div>
     </div>

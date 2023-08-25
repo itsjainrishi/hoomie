@@ -3,6 +3,7 @@ import {
   IconCancel,
   IconDownArrow,
   IconFacebook,
+  IconFilter,
   IconInstagram,
   IconLeftArrow,
   IconMenu,
@@ -19,6 +20,8 @@ const Icon = ({ name, ...otherProps }: { name: string; [x:string]: any; }) => {
       return <IconDownArrow {...otherProps} />;
     case 'Facebook':
       return <IconFacebook {...otherProps} />;
+    case 'Filter':
+      return <IconFilter {...otherProps} />;
     case 'Instagram':
       return <IconInstagram {...otherProps} />;
     case 'LeftArrow':
