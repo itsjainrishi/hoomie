@@ -57,7 +57,7 @@ const FeaturedCarousel = ({ properties }: FeaturedCarouselProps) => {
           <div className="flex">
             {properties.map((property, index) => (
 
-              <div key={index} className="flex-[0_0_60%] md:flex-[0_0_40%] lg:flex-[0_0_30%] px-4 lg:px-6">
+              <div key={index} className="flex-[0_0_90%] md:flex-[0_0_40%] lg:flex-[0_0_30%] px-4 lg:px-6">
                 <PropertyCard property={property?.property} />
               </div>
             ))}

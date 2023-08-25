@@ -58,13 +58,13 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
     router.replace(`/property${routeparams}`);
   }
 
-  const intervalRef = useRef(null);
+  const intervalRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
     if ((lte !== lteParam) ||
         (gte !== gteParam) ||
-        (city !== cityParam) ||
-        (propertyType !== typeParam) ||
+        (city.value !== cityParam) ||
+        (propertyType.value !== typeParam) ||
         (roomCount !== roomParam) ||
         (bathRoomCount !== bathParam)
       ) {

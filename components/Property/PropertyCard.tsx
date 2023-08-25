@@ -1,3 +1,4 @@
+import Image from 'next/image';
 import Link from 'next/link';
 import { Card, CardBody } from '@/components/Card';
 import type { Property } from './Property';
@@ -14,11 +15,12 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
       <CardBody>
         <div>
           <Link href={`/property/${id}`}>
-            <div className="aspect-w-1 aspect-h-1 h-60">
-              <img
+            <div className="relative aspect-w-1 aspect-h-1 h-60">
+              <Image
                 className="object-cover w-full h-full rounded-t-xl"
                 src={images?.[0]?.url}
-                alt=""
+                alt={propertyName}
+                fill={true}
               />
             </div>
             <div className="p-4 xl:px-6 h-[140px]">
