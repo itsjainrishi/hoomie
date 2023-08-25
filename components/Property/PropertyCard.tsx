@@ -10,13 +10,13 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
   const { propertyName, images, rentPrice, id } = property;
 
   return (
-    <Card className="shadow-house rounded-xl">
+    <Card className="shadow-house rounded-xl transition-all duration-300 lg:hover:scale-105 border">
       <CardBody>
         <div>
           <Link href={`/property/${id}`}>
-            <div className="aspect-w-1 aspect-h-1">
+            <div className="aspect-w-1 aspect-h-1 h-60">
               <img
-                className="object-cover w-full h-full rounded-t-xl transition-all duration-300 group-hover:scale-125"
+                className="object-cover w-full h-full rounded-t-xl"
                 src={images?.[0]?.url}
                 alt=""
               />

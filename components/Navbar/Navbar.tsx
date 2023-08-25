@@ -16,52 +16,49 @@ const Navbar = () => {
   return (
     <>
       <nav className="w-full top-0 z-50 bg-[#fafcfb]">
-        {pathname.includes('property') && params.id !== undefined ?
-          <div className="absolute top-4 left-4 z-10">
-            <div className="flex items-center justify-center p-2 bg-[#fafcfb] rounded-full">
-              <Icon className="w-4 h-4" name="LeftArrow" onClick={() => router.back()} />
+        <div className={`absolute top-4 left-4 z-10 ${pathname.includes('property') && params.id !== undefined ? 'lg:hidden' : 'hidden'}`}>
+          <div className="flex items-center justify-center p-2 bg-[#fafcfb] rounded-full">
+            <Icon className="w-4 h-4" name="LeftArrow" onClick={() => router.back()} />
+          </div>
+        </div>
+        <div className={`container mx-auto navbar-container px-4 lg:px-0 ${pathname.includes('property') && params.id !== undefined ? 'hidden lg:block' : ''}`}>
+          <div className="navbar flex py-4 lg:py-6 justify-between items-center">
+            <Link className="flex items-center" href="/">
+              <p className="font-bold text-2xl xxl:text-3xl text-primary">
+                Hoomie
+              </p>
+            </Link>
+            <ul className="hidden lg:flex gap-12 font-roboto text-secondary text-lg pl-20 xl:pl-40 items-center">
+              <li>
+                {/*<Link href="market">Market</Link>*/}
+              </li>
+              <li>
+                <span className="cursor-pointer">Rent</span>
+              </li>
+              <li>
+                <span className="cursor-pointer">Buy</span>
+              </li>
+              <li>
+                <span className="cursor-pointer">About</span>
+              </li>
+            </ul>
+            <ul className="hidden lg:flex font-roboto gap-8 text-lg items-center ml-auto mr-4">
+              <li>
+                <button className="px-4 py-3">
+                  <a href="login">Login</a>
+                </button>
+              </li>
+              <li>
+                <button className="rounded-xl px-4 py-3 bg-primary">
+                  <a className="text-white" href="register">Register</a>
+                </button>
+              </li>
+            </ul>
+            <div className="lg:hidden">
+              <Icon className="w-6 h-6" name="Menu" onClick={openMobile} />
             </div>
           </div>
-          :
-          <div className="container mx-auto navbar-container px-4 lg:px-0">
-            <div className="navbar flex py-4 lg:py-6 justify-between items-center">
-              <Link className="flex items-center" href="/">
-                <p className="font-bold text-2xl xxl:text-3xl text-primary">
-                  Hoomie
-                </p>
-              </Link>
-              <ul className="hidden lg:flex gap-12 font-roboto text-secondary text-lg pl-20 xl:pl-40 items-center">
-                <li>
-                  {/*<Link href="market">Market</Link>*/}
-                </li>
-                <li>
-                  <span className="cursor-pointer">Rent</span>
-                </li>
-                <li>
-                  <span className="cursor-pointer">Buy</span>
-                </li>
-                <li>
-                  <span className="cursor-pointer">About</span>
-                </li>
-              </ul>
-              <ul className="hidden lg:flex font-roboto gap-8 text-lg items-center ml-auto mr-4">
-                <li>
-                  <button className="px-4 py-3">
-                    <a href="login">Login</a>
-                  </button>
-                </li>
-                <li>
-                  <button className="rounded-xl px-4 py-3 bg-primary">
-                    <a className="text-white" href="register">Register</a>
-                  </button>
-                </li>
-              </ul>
-              <div className="lg:hidden">
-                <Icon className="w-6 h-6" name="Menu" onClick={openMobile} />
-              </div>
-            </div>
-          </div>
-        }
+        </div>
       </nav>
 
       {/* mobile nav */}

@@ -2,7 +2,7 @@ import Image from 'next/image';
 import { gql } from '@apollo/client';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import { getClient } from '@/lib/client';
-import Map from '@/components/map/map';
+import { Map } from '@/components/map';
 import { PropertyImageCarousel } from '@/components/Property';
 
 
@@ -90,7 +90,9 @@ const Property = async({ params }: { params: { id: string } }) => {
                 fill={true}
               />
             </div>
-            <PropertyImageCarousel images={property?.images} />
+            <div className="lg:hidden">
+              <PropertyImageCarousel images={property?.images} />
+            </div>
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-2">
             <div className="relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
@@ -237,7 +239,7 @@ const Property = async({ params }: { params: { id: string } }) => {
             <div className="mt-4 lg:mt-8">
               <h3 className="text-xl font-semibold mb-4">Map View</h3>
               <div className="h-72">
-                <Map center={[property.coordinate.latitude, property.coordinate.longitude]} />
+                <Map markers={[[property.coordinate.latitude, property.coordinate.longitude]]} />
               </div>
             </div>
           </div>

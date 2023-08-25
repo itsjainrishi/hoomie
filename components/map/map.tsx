@@ -18,30 +18,36 @@ L.Icon.Default.mergeOptions({
 });
 
 type Props = {
-  center?: number[];
+  markers?: number[][];
   locationValue?: string;
+  className?: string;
 };
 
-function Map({ center, locationValue }: Props) {
+function Map({ className='h-72 rounded-lg', markers, locationValue }: Props) {
+  const latLongArray = markers?.map(m => m.coordinate);
+  const bounds = markers ? L.latLngBounds([...latLongArray]) : L.latLngBounds([]);
+
   return (
     <MapContainer
-      center={(center as L.LatLngExpression) || [26.9124, 75.7873]}
-      zoom={center ? 16 : 6}
+      center={(markers?.[0]?.coordinate as L.LatLngExpression) || [26.9124, 75.7873]}
+      zoom={markers.length === 1 ? 16 : 6}
       scrollWheelZoom={false}
-      className="h-72 rounded-lg"
+      className={className}
+      bounds={bounds}
     >
       <TileLayer
         url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
-      <Marker position={(center as L.LatLngExpression) || [26.9124, 75.7873]}>
-        {/*<Popup>
-          <div className="flex justify-center items-center animate-bounce">
-            <Flag code={locationValue} className="w-10"></Flag>
-            <strong>Location:</strong> { city }, { region }
-          </div>
-        </Popup>*/}
-        <Popup>Hey !</Popup>
-      </Marker>
+      {markers?.map((marker, index) => (
+        <Marker position={(marker?.coordinate as L.LatLngExpression) || [26.9124, 75.7873]} key={index}>
+          <Popup>
+            <div className="text-lg">
+              <p>{marker.name}</p>
+              <p className="text-base text-primary">£{marker.rentPrice}</p>
+            </div>
+          </Popup>
+        </Marker>
+      ))}
     </MapContainer>
   );
 }

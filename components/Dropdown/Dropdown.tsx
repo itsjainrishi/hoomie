@@ -10,22 +10,24 @@ type DropdownProps = {
   className?: string;
   items?: DropdownItemProps[];
   label?: string;
+  value?: DropdownItemProps;
+  onChange(arg: DropdownItemProps):void;
 }
 
-const Dropdown = ({ className, items, label }: DropdownProps) => {
+const Dropdown = ({ className, items, label, value, onChange }: DropdownProps) => {
   const [isActive, setIsActive] = useState(false);
-  const [selected, setSelected] = useState(items?.[0]);
   const ref = useRef(null);
-
-  const handleItemClick = (item: DropdownItemProps) => {
-    setSelected(item);
-  }
 
   const toggleDropdown = () => {
     setIsActive(!isActive);
   }
 
   const closeDropdown = () => setIsActive(false);
+
+  const handleSelect = (item) => {
+    onChange(item);
+    closeDropdown();
+  }
 
   useOnClickOutside(ref, closeDropdown);
 
@@ -38,7 +40,7 @@ const Dropdown = ({ className, items, label }: DropdownProps) => {
         >
           <div>
             <span className="text-sm xxl:text-xl font-semibold">
-              {selected?.label}
+              {value?.label}
             </span>
             <div className="text-xs lg:text-base text-left md:text-center">
               {label}
@@ -48,7 +50,7 @@ const Dropdown = ({ className, items, label }: DropdownProps) => {
         </button>
         <ul className={`dropdown-menu p-4 w-full bg-white shadow-box absolute rounded-2xl z-10 ${isActive ? '' : 'hidden'}`}>
           {items?.map(item => (
-            <li key={item?.value} className="text-left" onClick={() => handleItemClick(item)}>
+            <li key={item?.value} className="cursor-pointer text-left" onClick={() => handleSelect(item)}>
               <DropdownItem label={item?.label} value={item?.value} />
             </li>
           ))}
