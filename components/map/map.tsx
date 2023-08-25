@@ -18,7 +18,11 @@ L.Icon.Default.mergeOptions({
 });
 
 type Props = {
-  markers?: number[][];
+  markers?: {
+    name: string;
+    coordinate: (string | undefined)[];
+    rentPrice: number;
+  }[];
   locationValue?: string;
   className?: string;
 };

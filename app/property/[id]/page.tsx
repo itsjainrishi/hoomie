@@ -239,7 +239,13 @@ const Property = async({ params }: { params: { id: string } }) => {
             <div className="mt-4 lg:mt-8">
               <h3 className="text-xl font-semibold mb-4">Map View</h3>
               <div className="h-72">
-                <Map markers={[[property.coordinate.latitude, property.coordinate.longitude]]} />
+                <Map markers={[
+                  {
+                    name: property.propertyName,
+                    coordinate: [property.coordinate.latitude, property.coordinate.longitude],
+                    rentPrice: property.rentPrice
+                  }
+                ]} />
               </div>
             </div>
           </div>
