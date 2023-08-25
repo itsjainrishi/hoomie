@@ -8,6 +8,14 @@ import { Icon } from '@/components/icons';
 import { Map } from '@/components/map';
 import { PropertyCard } from '@/components/Property';
 import Filter from './filter';
+import type { Property } from '@/components/Property';
+
+
+type PropertyQueryResultProps = {
+  data: {
+    properties: Property[];
+  }
+}
 
 
 const PropertiesQuery = gql`
@@ -47,7 +55,7 @@ const PropertyListing = () => {
     ...lteParam && { rentPrice_lte: Number(lteParam) },
   }
 
-  const { data } = useSuspenseQuery(PropertiesQuery, {
+  const { data } : PropertyQueryResultProps = useSuspenseQuery(PropertiesQuery, {
     variables: { where: filters }
   });
 
@@ -85,7 +93,7 @@ const PropertyListing = () => {
             <div
               className={`hidden lg:flex flex-col overflow-y-auto hide-scroll-x p-6 cshadow max-w-sm xxl:max-w-lg ${isVisible ? 'absolute bottom-0' : data?.properties?.length !== 0 ? 'fixed top-28 xl:top-40' : 'absolute bottom-0'}`}
             >
-              <Filter />
+              <Filter closeFilters={setMobile} isVisible={false} />
             </div>
           </div>
           <div className="col-span-4 lg:col-span-5 xl:col-span-8 min-h-[760px]">

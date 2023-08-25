@@ -22,8 +22,8 @@ const bathrooms = ['Any', '1', '2', '3', '4', '5+'];
 const bedrooms = ['Any', '1', '2', '3', '4', '5+'];
 
 type FilterProps = {
-  closeFilters?: () => void;
-  isVisible?: boolean;
+  closeFilters: (val:boolean) => void;
+  isVisible: boolean;
 }
 
 
@@ -79,17 +79,17 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
 
 
 
-  const handlePropertyType = (val) => setPropertyType(val);
+  const handlePropertyType = (val: { label: string, value: string }) => setPropertyType(val);
 
-  const handleCity = (val) => setCity(val);
+  const handleCity = (val: { label: string, value: string }) => setCity(val);
 
-  const handleRoomCount = (val) => setRoomCount(val);
+  const handleRoomCount = (val: string) => setRoomCount(val);
 
-  const handleBathRoomCount = (val) => setBathRoomCount(val);
+  const handleBathRoomCount = (val: string) => setBathRoomCount(val);
 
-  const handleMinPrice = (val) => setGTE(val);
+  const handleMinPrice = (val: string) => setGTE(val);
 
-  const handleMaxPrice = (val) => setLTE(val);
+  const handleMaxPrice = (val: string) => setLTE(val);
 
   const handleClose = () => {
     closeFilters(false);
@@ -111,7 +111,7 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
               label="Min Price"
               placeholder="0.00"
               value={gte}
-              onChange={(val) => handleMinPrice(val)}
+              onChange={(val: string) => handleMinPrice(val)}
             />
           </div>
           <div className="w-1/2">
@@ -119,7 +119,7 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
               label="Max Price"
               placeholder="50000.00"
               value={lte}
-              onChange={(val) => handleMaxPrice(val)}
+              onChange={(val: string) => handleMaxPrice(val)}
             />
           </div>
         </div>
@@ -130,7 +130,7 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
             className="w-full bg-white rounded-xl"
             items={propertyTypes}
             value={propertyType}
-            onChange={(val) => handlePropertyType(val)}
+            onChange={(val: { label: string, value: string }) => handlePropertyType(val)}
           />
         </div>
         <div className="border-b border-beta my-6"></div>
@@ -140,7 +140,7 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
             className="w-full bg-white rounded-xl"
             items={cities}
             value={city}
-            onChange={(val) => handleCity(val)}
+            onChange={(val: { label: string, value: string }) => handleCity(val)}
           />
         </div>
         <div className="border-b border-beta my-6"></div>
