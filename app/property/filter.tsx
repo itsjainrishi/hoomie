@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
 import { Dropdown } from '@/components/Dropdown';
 import { PriceInput } from '@/components/PriceInput';
+import type { DropdownItemProps } from '@/components/Dropdown';
 
 
 const propertyTypes = [
@@ -41,8 +42,8 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
 
   const [roomCount, setRoomCount] = useState(roomParam ? roomParam : bedrooms[0]);
   const [bathRoomCount, setBathRoomCount] = useState(bathParam ? bathParam : bathrooms[0]);
-  const [city, setCity] = useState(cityParam ? {label: cityParam.charAt(0).toUpperCase() + cityParam.slice(1), value: cityParam} : cities[0]);
-  const [propertyType, setPropertyType] = useState(typeParam ? {label: typeParam.charAt(0).toUpperCase() + typeParam.slice(1), value: typeParam} : propertyTypes[0]);
+  const [city, setCity] = useState<DropdownItemProps>(cityParam ? {label: cityParam.charAt(0).toUpperCase() + cityParam.slice(1), value: cityParam} : cities[0]);
+  const [propertyType, setPropertyType] = useState<DropdownItemProps>(typeParam ? {label: typeParam.charAt(0).toUpperCase() + typeParam.slice(1), value: typeParam} : propertyTypes[0]);
   const [lte, setLTE] = useState(lteParam ? lteParam : "");
   const [gte, setGTE] = useState(gteParam ? gteParam : "");
 

@@ -3,6 +3,7 @@
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { Dropdown } from '@/components/Dropdown';
+import type { DropdownItemProps } from '@/components/Dropdown';
 import { Icon } from '@/components/icons';
 
 const HeroSearch = () => {
@@ -29,16 +30,16 @@ const HeroSearch = () => {
     {label: "Less than £4000", value: "0-4000"},
   ]
 
-  const [city, setCity] = useState(cities[0]);
-  const [propertyType, setPropertyType] = useState(propertyTypes[0]);
-  const [priceRange, setPriceRange] = useState(priceRanges[0]);
+  const [city, setCity] = useState<DropdownItemProps>(cities[0]);
+  const [propertyType, setPropertyType] = useState<DropdownItemProps>(propertyTypes[0]);
+  const [priceRange, setPriceRange] = useState<DropdownItemProps>(priceRanges[0]);
 
   const showProperties = () => {
     let cityChanged = false;
     let propertyTypeChanged = false;
     let priceRangeChanged = false;
 
-    const lte = priceRange.value.split('-')[1];
+    const lte = priceRange?.value?.split('-')?.[1];
 
     if (city.value !== 'any') cityChanged = true;
     if (propertyType.value !== 'any') propertyTypeChanged = true;

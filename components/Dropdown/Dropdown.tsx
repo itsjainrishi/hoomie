@@ -24,7 +24,7 @@ const Dropdown = ({ className, items, label, value, onChange }: DropdownProps) =
 
   const closeDropdown = () => setIsActive(false);
 
-  const handleSelect = (item) => {
+  const handleSelect = (item: DropdownItemProps) => {
     onChange(item);
     closeDropdown();
   }
