@@ -90,7 +90,7 @@ const PropertyListing = () => {
   return (
     <div className="bg-[#fafcfb]">
       <div className="properties container mx-auto pt-6 xl:pt-20 pb-10 px-4 lg:px-0">
-        <div className="flex justify-end mb-2">
+        <div className="flex lg:hidden justify-end mb-2">
           <Icon name="Filter" className="w-6 h-6" onClick={showFilters} />
         </div>
         <div className="relative grid grid-cols-4 md:grid-cols-8 xl:grid-cols-12 gap-4 lg:gap-6">

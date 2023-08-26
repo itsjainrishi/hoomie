@@ -47,36 +47,26 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
   const [lte, setLTE] = useState(lteParam ? lteParam : "");
   const [gte, setGTE] = useState(gteParam ? gteParam : "");
 
-  const updateSearch = () => {
-    let cityChanged = false;
-    let propertyTypeChanged = false;
-    let roomCountChanged = false;
-    let bathRoomCountChanged = false;
-
-    let routeparams = "?rentPrice_gte=" + gte + "&rentPrice_lte=" + lte;
-
-    routeparams += '&city=' + city.value + '&type=' + propertyType.value + '&room=' + roomCount + '&bath=' + bathRoomCount;
-    router.replace(`/property${routeparams}`);
-  }
-
   const intervalRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
-    if ((lte !== lteParam) ||
-        (gte !== gteParam) ||
-        (city.value !== cityParam) ||
-        (propertyType.value !== typeParam) ||
-        (roomCount !== roomParam) ||
-        (bathRoomCount !== bathParam)
-      ) {
-      intervalRef.current = setTimeout(() => {
-        updateSearch();
-      }, 1000);
-    } else {
-      clearTimeout(intervalRef.current);
+    const updateSearch = () => {
+      let cityChanged = false;
+      let propertyTypeChanged = false;
+      let roomCountChanged = false;
+      let bathRoomCountChanged = false;
+
+      let routeparams = "?rentPrice_gte=" + gte + "&rentPrice_lte=" + lte;
+
+      routeparams += '&city=' + city.value + '&type=' + propertyType.value + '&room=' + roomCount + '&bath=' + bathRoomCount;
+      router.replace(`/property${routeparams}`);
     }
+
+    intervalRef.current = setTimeout(() => {
+      updateSearch();
+    }, 1000);
     return () => clearTimeout(intervalRef.current);
-  },[lte, gte, city, roomCount, bathRoomCount, propertyType]);
+  },[lte, gte, city, roomCount, bathRoomCount, propertyType, router]);
 
 
 
