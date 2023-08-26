@@ -18,9 +18,9 @@ export type Property = {
     raw: string;
   } | undefined;
   coordinate: {
-    latitude: string;
-    longitude: string;
-  } | undefined;
+    latitude: number;
+    longitude: number;
+  };
   owner: {
     name: string;
     image: {

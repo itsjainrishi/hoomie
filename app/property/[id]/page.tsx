@@ -1,10 +1,13 @@
+import dynamic from 'next/dynamic';
 import Image from 'next/image';
 import { gql } from '@apollo/client';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import { getClient } from '@/lib/client';
-import { Map } from '@/components/map';
 import { PropertyImageCarousel } from '@/components/Property';
 
+const Map = dynamic(() => import("@/components/map/map"), {
+  ssr: false,
+});
 
 const PropertyQuery = gql`
   query Property($where: PropertyWhereUniqueInput!) {

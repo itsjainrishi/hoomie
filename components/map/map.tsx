@@ -2,7 +2,6 @@
 
 import L from 'leaflet';
 import { MapContainer, Marker, Popup, TileLayer } from 'react-leaflet';
-
 import markerIcon2x from "leaflet/dist/images/marker-icon-2x.png";
 import markerIcon from "leaflet/dist/images/marker-icon.png";
 import markerShadow from "leaflet/dist/images/marker-shadow.png";
@@ -18,9 +17,9 @@ L.Icon.Default.mergeOptions({
 });
 
 type Props = {
-  markers?: {
+  markers: {
     name: string;
-    coordinate: (string | undefined)[];
+    coordinate: L.LatLngExpression;
     rentPrice: number;
   }[];
   locationValue?: string;
@@ -28,7 +27,10 @@ type Props = {
 };
 
 function Map({ className='h-72 rounded-lg', markers, locationValue }: Props) {
-  const latLongArray = markers?.map(m => m.coordinate);
+  const latLongArray = markers.map(m => m.coordinate as L.LatLngExpression);
+  console.log(latLongArray)
+  console.log(markers)
+  console.log(typeof([...latLongArray]))
   const bounds = markers ? L.latLngBounds([...latLongArray]) : L.latLngBounds([]);
 
   return (

@@ -1,14 +1,19 @@
 'use client';
-
+import L from 'leaflet';
 import { useRef, useState } from 'react';
 import { useSearchParams } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { gql, useSuspenseQuery } from '@apollo/client';
 import { useIntersectionObserver } from 'usehooks-ts';
 import { Icon } from '@/components/icons';
-import { Map } from '@/components/map';
 import { PropertyCard } from '@/components/Property';
 import Filter from './filter';
 import type { Property } from '@/components/Property';
+
+
+const Map = dynamic(() => import("@/components/map/map"), {
+  ssr: false,
+});
 
 
 type PropertyQueryResultProps = {
@@ -62,7 +67,7 @@ const PropertyListing = () => {
   const markers = data?.properties?.map(p => {
     return {
       name: p.propertyName,
-      coordinate: [p?.coordinate?.latitude, p?.coordinate?.longitude],
+      coordinate: [p.coordinate.latitude, p.coordinate.longitude] as L.LatLngExpression,
       rentPrice: p.rentPrice
     }
   });
