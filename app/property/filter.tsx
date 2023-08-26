@@ -112,7 +112,7 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
               label="Min Price"
               placeholder="0.00"
               value={gte}
-              onChange={(val: string) => handleMinPrice(val)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleMinPrice(e.target.value)}
             />
           </div>
           <div className="w-1/2">
@@ -120,7 +120,7 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
               label="Max Price"
               placeholder="50000.00"
               value={lte}
-              onChange={(val: string) => handleMaxPrice(val)}
+              onChange={(e: React.ChangeEvent<HTMLInputElement>) => handleMaxPrice(e.target.value)}
             />
           </div>
         </div>

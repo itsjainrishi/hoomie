@@ -2,10 +2,10 @@ type PriceInputProps = {
   label?: string;
   placeholder?: string;
   value?: string | number;
-  onChange?: (e: React.ChangeEvent<HTMLInputElement>) => void;
+  onChange: (e: React.ChangeEvent<HTMLInputElement>) => void;
 }
 
-const PriceInput = ({ label, placeholder, value, onChange }) => {
+const PriceInput = ({ label, placeholder, value, onChange }: PriceInputProps) => {
   return (
     <div>
       <label className="block text-sm lg:text-base font-medium leading-6 text-tertiary">
@@ -22,7 +22,7 @@ const PriceInput = ({ label, placeholder, value, onChange }) => {
           className="bg-theta block w-full text-base xxl:text-lg rounded-md border-0 py-1.5 pl-7 pr-7 text-gray-900 placeholder:text-gray-400"
           placeholder={placeholder}
           value={value}
-          onChange={(e) => onChange(e.target.value)}
+          onChange={(e) => onChange(e)}
         />
         <div className="absolute inset-y-0 right-0 flex items-center">
           <label className="sr-only">Currency</label>
