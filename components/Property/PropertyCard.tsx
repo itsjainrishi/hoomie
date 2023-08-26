@@ -15,10 +15,10 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
       <CardBody>
         <div>
           <Link href={`/property/${id}`}>
-            <div className="relative aspect-w-1 aspect-h-1 h-60">
+            <div className="relative   aspect-w-1 aspect-h-1 h-60">
               <Image
                 className="object-cover w-full h-full rounded-t-xl"
-                src={images?.[0]?.url}
+                src={images?.[0]?.url || ""}
                 alt={propertyName}
                 fill={true}
               />

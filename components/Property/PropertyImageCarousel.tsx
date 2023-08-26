@@ -5,7 +5,6 @@ import Image from 'next/image';
 import useEmblaCarousel, {
   EmblaCarouselType,
 } from 'embla-carousel-react';
-import CustomImage from '@/components/customImage/customImage';
 
 type CarouselImageProps = {
   images: {
