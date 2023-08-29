@@ -32,7 +32,7 @@ const Loading = async({ params }: { params: { id: string } }) => {
 
         <div className="lg:container mx-auto lg:mt-6 grid grid-cols-2 lg:grid-cols-4 lg:gap-x-2 lg:h-96 lg:px-4">
           <div className="col-span-2">
-            <div className="relative overflow-hidden rounded-lg bg-loading animate-pulse h-[300px]"></div>
+            <div className="relative overflow-hidden rounded-lg bg-loading animate-pulse h-[300px] lg:h-96"></div>
           </div>
           <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-2">
             <div className="relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg bg-loading animate-pulse"></div>
