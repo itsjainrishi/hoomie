@@ -12,6 +12,7 @@ import type { Property } from '@/components/Property';
 
 
 const Map = dynamic(() => import("@/components/map/map"), {
+  loading: () => <div className="flex items-center justify-center h-[60vh] mb-4 bg-theta rounded animate-pulse"></div>,
   ssr: false,
 });
 
@@ -89,7 +90,7 @@ const PropertyListing = () => {
 
   return (
     <div className="bg-[#fafcfb]">
-      <div className="properties container mx-auto pt-6 xl:pt-20 pb-10 px-4 lg:px-0">
+      <div className="properties lg:container mx-auto pt-6 xl:pt-20 pb-10 px-4">
         <div className="flex lg:hidden justify-end mb-2">
           <Icon name="Filter" className="w-6 h-6" onClick={showFilters} />
         </div>

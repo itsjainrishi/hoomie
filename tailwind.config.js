@@ -22,6 +22,7 @@ module.exports = {
       },
       colors: {
         primary: '#f7976b',
+        loading: '#dcdcdc'
       },
       gridTemplateRows: {
         '[auto,auto,1fr]': 'auto auto 1fr',

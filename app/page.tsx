@@ -32,7 +32,7 @@ const Home = async() => {
     <div className="flex min-h-screen flex-col items-center justify-between pb-10 xl:pb-20 bg-[#fafcfb]">
       <Hero />
 
-      <section className="business-overview container mt-10 xl:mt-20 px-4 lg:px-0">
+      <section className="business-overview lg:container mt-10 xl:mt-20 px-4">
         <div className="grid grid-cols-4 lg:grid-cols-8 xl:grid-cols-12 gap-4 lg:gap-6">
           <div className="col-span-4 xl:col-span-5">
             <div className="">
@@ -82,7 +82,7 @@ const Home = async() => {
         </div>
       </section>
 
-      <section className="services-overview container mt-10 xl:mt-20 px-4 lg:px-0">
+      <section className="services-overview lg:container mt-10 xl:mt-20 px-4">
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold">
             What Services Hoomie Provide <br /> That Help People
@@ -126,7 +126,7 @@ const Home = async() => {
         </div>
       </section>
 
-      <section className="featured-properties container mt-10 xl:mt-20 px-4 lg:px-0">
+      <section className="featured-properties lg:container mt-10 xl:mt-20 px-4">
         <div className="">
           <h2 className="text-2xl md:text-3xl font-bold">
             Featured Properties
@@ -135,7 +135,7 @@ const Home = async() => {
         </div>
       </section>
 
-      <section className="process container mt-10 xxl:mt-20 px-4 lg:px-0">
+      <section className="process lg:container mt-10 xxl:mt-20 px-4">
         <div className="text-center">
           <h2 className="text-2xl md:text-3xl font-bold">
             What Our Customer Say About us
@@ -144,7 +144,7 @@ const Home = async() => {
         <TestimonialCarousel />
       </section>
 
-      <section className="subscribe container mt-10 xxl:mt-20 px-4 lg:px-0">
+      <section className="subscribe lg:container mt-10 xxl:mt-20 px-4">
         <div className="flex flex-col md:flex-row items-center justify-center py-3">
           <h2 className="text-xl xxl:text-3xl font-bold lg:mr-20 mb-4 md:mb-0 texr-center lg:text-left">
             Stay Up To Date With Our Special Deals

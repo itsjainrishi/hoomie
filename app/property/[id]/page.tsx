@@ -55,7 +55,7 @@ const Property = async({ params }: { params: { id: string } }) => {
     <div className="bg-[#fafcfb]">
       <div className="lg:pt-6">
         <nav className="hidden lg:block" aria-label="Breadcrumb">
-          <ol role="list" className="container mx-auto flex items-center space-x-2 px-4 lg:px-0">
+          <ol role="list" className="container mx-auto flex items-center space-x-2 px-4">
             <li>
               <div className="flex items-center">
                 <a href="#" className="mr-2 text-lg font-medium text-gray-900">
@@ -82,14 +82,14 @@ const Property = async({ params }: { params: { id: string } }) => {
           </ol>
         </nav>
 
-        <div className="container mx-auto lg:mt-6 grid grid-cols-2 lg:grid-cols-4 lg:gap-x-2 lg:h-96">
+        <div className="lg:container mx-auto lg:mt-6 grid grid-cols-2 lg:grid-cols-4 lg:gap-x-2 lg:h-96 lg:px-4">
           <div className="col-span-2">
             <div className="relative hidden overflow-hidden rounded-lg lg:block h-full">
               <Image
                 alt={property.propertyName}
                 src={property.images[0].url}
-                className="h-full w-full object-cover object-center"
                 fill={true}
+                sizes="(max-width: 768px) 100vw"
               />
             </div>
             <div className="lg:hidden">
@@ -103,6 +103,7 @@ const Property = async({ params }: { params: { id: string } }) => {
                 src={property.images[1].url}
                 className="h-full w-full object-cover object-center"
                 fill={true}
+                sizes="(max-width: 768px) 100vw"
               />
             </div>
             <div className="relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
@@ -111,6 +112,7 @@ const Property = async({ params }: { params: { id: string } }) => {
                 src={property.images[2].url}
                 className="h-full w-full object-cover object-center"
                 fill={true}
+                sizes="(max-width: 768px) 100vw"
               />
             </div>
           </div>
@@ -121,6 +123,7 @@ const Property = async({ params }: { params: { id: string } }) => {
                 src={property.images[3].url}
                 className="h-full w-full object-cover object-center"
                 fill={true}
+                sizes="(max-width: 768px) 100vw"
               />
             </div>
             <div className="relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
@@ -129,12 +132,13 @@ const Property = async({ params }: { params: { id: string } }) => {
                 src={property.images[4].url}
                 className="h-full w-full object-cover object-center"
                 fill={true}
+                sizes="(max-width: 768px) 100vw"
               />
             </div>
           </div>
         </div>
 
-        <div className="container mx-auto pb-16 pt-10 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-6 lg:pb-24 lg:pt-16 px-4 lg:px-0">
+        <div className="lg:container mx-auto pb-16 pt-10 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-6 lg:pb-24 lg:pt-16 px-4">
           <div className="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
             <h1 className="text-2xl font-bold tracking-tight text-gray-900 sm:text-3xl">
               { property.propertyName }
@@ -227,6 +231,7 @@ const Property = async({ params }: { params: { id: string } }) => {
                       src={property.owner.image.url}
                       style={{objectFit: "contain"}}  
                       fill
+                      sizes="(max-width: 768px) 100vw"
                     />
                   </div>
                 </div>

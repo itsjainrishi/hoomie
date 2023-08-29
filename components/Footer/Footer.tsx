@@ -3,7 +3,7 @@ import { Icon } from '@/components/icons';
 
 const Footer = () => (
   <section className="bg-[#fafcfb]">
-    <div className="container mx-auto border-t">
+    <div className="lg:container mx-auto border-t">
       <div className="grid grid-cols-2 md:grid-cols-8 xl:grid-cols-12 gap-4 lg:gap-6 px-4 mt-8">
         <div className="col-span-2 xl:col-span-3 lg:pr-8">
           <h5 className="font-bold text-xl xl:text-3xl mt-4">
@@ -88,7 +88,7 @@ const Footer = () => (
 
       </div>
       <hr className="mt-6 mb-6 lg:mt-8 lg:mb-8 border-secondary" />
-      <p className="text-sm text-center text-secondary font-roboto mb-6">
+      <p className="text-sm text-center text-secondary font-roboto pb-6">
         © Copyright 2023, All Rights Reserved by Hoomie
       </p>
     </div>

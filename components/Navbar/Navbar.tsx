@@ -21,7 +21,7 @@ const Navbar = () => {
             <Icon className="w-4 h-4" name="LeftArrow" onClick={() => router.back()} />
           </div>
         </div>
-        <div className={`container mx-auto navbar-container px-4 lg:px-0 ${pathname.includes('property') && params.id !== undefined ? 'hidden lg:block' : ''}`}>
+        <div className={`container mx-auto navbar-container px-4 ${pathname.includes('property') && params.id !== undefined ? 'hidden lg:block' : ''}`}>
           <div className="navbar flex py-4 lg:py-6 justify-between items-center">
             <Link className="flex items-center" href="/">
               <p className="font-bold text-2xl xxl:text-3xl text-primary">
@@ -42,7 +42,7 @@ const Navbar = () => {
                 <span className="cursor-pointer">About</span>
               </li>
             </ul>
-            <ul className="hidden lg:flex font-roboto gap-8 text-lg items-center ml-auto mr-4">
+            <ul className="hidden lg:flex font-roboto gap-8 text-lg items-center ml-auto">
               <li>
                 <button className="px-4 py-3">
                   <a href="login">Login</a>
