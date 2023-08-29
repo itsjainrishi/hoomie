@@ -10,6 +10,7 @@ const Hero = () => {
         alt="Hero"
         fill={true}
         style={{objectFit: "cover"}}
+        priority={true}
       />
       <div className="hero-content relative text-center px-4 md:px-0">
         <div className="hero-title">

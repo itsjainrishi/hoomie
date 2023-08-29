@@ -4,7 +4,6 @@ import { Dropdown } from '@/components/Dropdown';
 import { PriceInput } from '@/components/PriceInput';
 import type { DropdownItemProps } from '@/components/Dropdown';
 
-
 const propertyTypes = [
   {label: "Any", value: "any"},
   {label: "House", value: "House"},
@@ -50,37 +49,54 @@ const Filter = ({ closeFilters, isVisible }: FilterProps) => {
   const intervalRef = useRef<ReturnType<typeof setTimeout> | undefined>(undefined);
 
   useEffect(() => {
-    const updateSearch = () => {
-      let cityChanged = false;
-      let propertyTypeChanged = false;
-      let roomCountChanged = false;
-      let bathRoomCountChanged = false;
-
-      let routeparams = "?rentPrice_gte=" + gte + "&rentPrice_lte=" + lte;
-
-      routeparams += '&city=' + city.value + '&type=' + propertyType.value + '&room=' + roomCount + '&bath=' + bathRoomCount;
-      router.replace(`/property${routeparams}`);
-    }
-
-    intervalRef.current = setTimeout(() => {
-      updateSearch();
-    }, 1000);
-    return () => clearTimeout(intervalRef.current);
-  },[lte, gte, city, roomCount, bathRoomCount, propertyType, router]);
+    const timeoutId = intervalRef.current;
+    return () => clearTimeout(timeoutId);
+  },[]);
 
 
+  const updateSearch = (name: string, value: string) => {
+    const params = new URLSearchParams(searchParams);
+    params.set(name, value);
+    router.replace(`/property?${params}`);
+  }
 
-  const handlePropertyType = (val: { label: string, value: string }) => setPropertyType(val);
+  const handlePropertyType = (ptype: { label: string, value: string }) => {
+    setPropertyType(ptype);
+    updateSearch('type', ptype.value);
+  }
 
-  const handleCity = (val: { label: string, value: string }) => setCity(val);
+  const handleCity = (city: { label: string, value: string }) => {
+    setCity(city);
+    updateSearch('city', city.value);
+  }
 
-  const handleRoomCount = (val: string) => setRoomCount(val);
+  const handleRoomCount = (val: string) => {
+    setRoomCount(val);
+    updateSearch('room', val);
+  }
 
-  const handleBathRoomCount = (val: string) => setBathRoomCount(val);
+  const handleBathRoomCount = (val: string) => {
+    setBathRoomCount(val);
+    updateSearch('bath', val);
+  }
 
-  const handleMinPrice = (val: string) => setGTE(val);
+  const handleMinPrice = (val: string) => {
+    setGTE(val);
+    clearTimeout(intervalRef.current);
+    const id = setTimeout(() => {
+      updateSearch('rentPrice_gte', val);
+    }, 500);
+    intervalRef.current = id;
+  }
 
-  const handleMaxPrice = (val: string) => setLTE(val);
+  const handleMaxPrice = (val: string) => {
+    setLTE(val);
+    clearTimeout(intervalRef.current);
+    const id = setTimeout(() => {
+      updateSearch('rentPrice_lte', val);
+    }, 500);
+    intervalRef.current = id;
+  }
 
   const handleClose = () => {
     closeFilters(false);

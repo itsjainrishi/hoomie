@@ -28,9 +28,6 @@ type Props = {
 
 function Map({ className='h-72 rounded-lg', markers, locationValue }: Props) {
   const latLongArray = markers.map(m => m.coordinate as L.LatLngExpression);
-  console.log(latLongArray)
-  console.log(markers)
-  console.log(typeof([...latLongArray]))
   const bounds = markers ? L.latLngBounds([...latLongArray]) : L.latLngBounds([]);
 
   return (

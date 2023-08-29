@@ -50,7 +50,6 @@ const Property = async({ params }: { params: { id: string } }) => {
     variables: { where: { id: params.id }}
   });
   const property = data.data.property;
-  console.log(property.petsAllowed)
 
   return (
     <div className="bg-[#fafcfb]">
