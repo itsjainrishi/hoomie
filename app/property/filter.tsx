@@ -1,8 +1,10 @@
 import { useEffect, useRef, useState } from 'react';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useRouter } from 'next/navigation';
 import { Dropdown } from '@/components/Dropdown';
 import { PriceInput } from '@/components/PriceInput';
 import type { DropdownItemProps } from '@/components/Dropdown';
+import useSearchParams from '@/lib/useSearchParams';
+
 
 const propertyTypes = [
   {label: "Any", value: "any"},
