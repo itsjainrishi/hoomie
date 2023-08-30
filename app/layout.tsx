@@ -2,17 +2,16 @@ import { Navbar } from '@/components/Navbar';
 import { Footer } from '@/components/Footer';
 import './globals.css';
 import type { Metadata } from 'next';
-import { League_Spartan, Roboto, Poppins } from 'next/font/google';
+import { Poppins } from 'next/font/google';
 
 
-const roboto = Roboto({
+const poppins = Poppins({
   weight: ['400', '700'],
   style: ['normal'],
   subsets: ['latin'],
   display: 'swap',
-})
-
-const leagueSpartan = League_Spartan({ subsets: ['latin'] })
+  variable: '--font-poppins'
+});
 
 export const metadata: Metadata = {
   title: 'Hoomie',
@@ -25,7 +24,7 @@ export default function RootLayout({
   children: React.ReactNode
 }) {
   return (
-    <html lang="en" className={leagueSpartan.className}>
+    <html lang="en" className={poppins.className}>
       <body>
         <Navbar />
         <main>{children}</main>

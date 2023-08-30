@@ -35,14 +35,14 @@ const Dropdown = ({ className, items, label, value, onChange }: DropdownProps) =
     <div className={className} ref={ref}>
       <div className="dropdown w-full inline-block relative" >
         <button
-          className="w-full py-2 px-4 rounded inline-flex items-center"
+          className="w-full py-2 px-4 rounded inline-flex items-center lg:min-w-[200px]"
           onClick={() => toggleDropdown()}
         >
           <div>
             <span className="text-sm xxl:text-xl font-semibold">
               {value?.label}
             </span>
-            <div className="text-xs lg:text-base text-left md:text-center">
+            <div className="text-xs xxl:text-base text-left md:text-center">
               {label}
             </div>
           </div>

@@ -25,13 +25,13 @@ const PropertyCard = ({ property }: PropertyCardProps) => {
             </div>
             <div className="p-4 xl:px-6 h-[140px]">
               <div className="flex flex-col justify-between h-full">
-                <h3 className="text-gray-900 text-base xl:text-xl">
-                  <span className="overflow-hidden tex">
+                <h3 className="text-gray-900 text-base xl:text-lg">
+                  <span className="overflow-hidden">
                     {propertyName}
                   </span>
                 </h3>
                 <div className="mt-2">
-                  <p className="font-semibold text-primary text-base xl:text-lg">
+                  <p className="font-semibold text-primary text-base">
                     £{rentPrice}
                   </p>
                 </div>

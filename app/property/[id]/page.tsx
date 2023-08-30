@@ -3,7 +3,7 @@ import Image from 'next/image';
 import { gql } from '@apollo/client';
 import { RichText } from '@graphcms/rich-text-react-renderer';
 import { getClient } from '@/lib/client';
-import { PropertyImageCarousel } from '@/components/Property';
+import Images from './_components/images';
 
 const Map = dynamic(() => import("@/components/map/map"), {
   ssr: false,
@@ -83,59 +83,7 @@ const Property = async({ params }: { params: { id: string } }) => {
         </nav>
 
         <div className="lg:container mx-auto lg:mt-6 grid grid-cols-2 lg:grid-cols-4 lg:gap-x-2 lg:h-96 lg:px-4">
-          <div className="col-span-2">
-            <div className="relative hidden overflow-hidden rounded-lg lg:block h-full">
-              <Image
-                alt={property.propertyName}
-                src={property.images[0].url}
-                fill={true}
-                sizes="(max-width: 768px) 100vw"
-              />
-            </div>
-            <div className="lg:hidden">
-              <PropertyImageCarousel images={property?.images} />
-            </div>
-          </div>
-          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-2">
-            <div className="relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <Image
-                alt={property.propertyName}
-                src={property.images[1].url}
-                className="h-full w-full object-cover object-center"
-                fill={true}
-                sizes="(max-width: 768px) 100vw"
-              />
-            </div>
-            <div className="relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <Image
-                alt={property.propertyName}
-                src={property.images[2].url}
-                className="h-full w-full object-cover object-center"
-                fill={true}
-                sizes="(max-width: 768px) 100vw"
-              />
-            </div>
-          </div>
-          <div className="hidden lg:grid lg:grid-cols-1 lg:gap-y-2">
-            <div className="relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <Image
-                alt={property.propertyName}
-                src={property.images[3].url}
-                className="h-full w-full object-cover object-center"
-                fill={true}
-                sizes="(max-width: 768px) 100vw"
-              />
-            </div>
-            <div className="relative aspect-h-2 aspect-w-3 overflow-hidden rounded-lg">
-              <Image 
-                alt={property.propertyName}
-                src={property.images[4].url}
-                className="h-full w-full object-cover object-center"
-                fill={true}
-                sizes="(max-width: 768px) 100vw"
-              />
-            </div>
-          </div>
+          <Images images={property.images} propertyName={property.propertyName} />
         </div>
 
         <div className="lg:container mx-auto pb-16 pt-10 lg:grid lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-6 lg:pb-24 lg:pt-16 px-4">
@@ -236,7 +184,7 @@ const Property = async({ params }: { params: { id: string } }) => {
                   </div>
                 </div>
                 <div className="owner-details py-4 flex flex-col gap-4 justify-between">
-                  <p className="text-xl">{property.owner.name}</p>
+                  <p className="text-lg">{property.owner.name}</p>
                   <button className="border border-primary text-primary p-2 rounded-xl">
                     Contact
                   </button>
