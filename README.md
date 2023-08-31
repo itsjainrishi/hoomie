@@ -1,8 +1,8 @@
 <h2>About the project</h2>
 
-  <p>Hoomie is an online platform that allows users to rent houses and apartments. The website provides an easy-to-use interface for searching, and viewing properties across different segments.</p>
+<p>Hoomie is an online platform that allows users to rent houses and apartments. The website provides an easy-to-use interface for searching, and viewing properties across different segments.</p>
 
-👉 Live Demo: <a href='https://hoomie.vercel.app/'>Hoomie</a>
+Live Demo: <a href='https://hoomie.vercel.app/'>Hoomie</a>
 
 <h3>Build with:</h3>
 
@@ -20,7 +20,7 @@
 
 <h3 align='center'>Listing Page</h3>
 <div align='center'>
-<img alt="Hoomie Property Listing" (3)]src="https://github.com/itsjainrishi/hoomie/assets/15385983/325c399d-2ed5-4ac8-aebf-2684f3ac22b2">
+<img alt="Hoomie Property Listing" src="https://github.com/itsjainrishi/hoomie/assets/15385983/325c399d-2ed5-4ac8-aebf-2684f3ac22b2">
 
 </div>
 
