@@ -126,7 +126,7 @@ const Home = async() => {
         </div>
       </section>
 
-      <section className="featured-properties lg:container mt-10 xl:mt-20 px-4">
+      <section className="featured-properties lg:container mt-10 xl:mt-20 px-4 w-screen">
         <div className="">
           <h2 className="text-2xl md:text-3xl font-bold">
             Featured Properties
